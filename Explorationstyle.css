@@ -1,0 +1,55 @@
+header {
+    background-color: #333;
+    color: white;
+    padding: 40px;
+}
+
+nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+nav ul li {
+    display: inline-block;
+    margin-right: 30px;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: white;
+}/* Add CSS styles for the Exploration section */
+.exploration-section {
+    text-align: center;
+    padding: 20px;
+}
+
+.exploration-section h2 {
+    font-size: 36px;
+    margin-bottom: 20px;
+}
+
+.exploration-section p {
+    font-size: 18px;
+    line-height: 1.5;
+}
+
+.exploration-section ul {
+    list-style: none;
+    padding: 0;
+}
+
+.exploration-section li {
+    display: inline-block;
+    margin: 20px;
+}
+
+.exploration-section img {
+    width: 200px;
+    height: 200px;
+}
+footer {
+    background-color: none;
+    padding: 10px;
+    text-align: center;
+}
