@@ -1,0 +1,543 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Detailed information about the International Space Station mission">
+    <title>International Space Station | Space Explorer</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/styles/main.css">
+    <link rel="stylesheet" href="/styles/Explorationstyle.css">
+    <style>
+        .mission-detail {
+            padding: 4rem 0;
+        }
+        
+        .mission-overview {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            margin-bottom: 3rem;
+        }
+        
+        .mission-main-image {
+            width: 100%;
+            border-radius: 10px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+        }
+        
+        .mission-info h2 {
+            margin-bottom: 1rem;
+            color: #fff;
+        }
+        
+        .mission-info p {
+            margin-bottom: 1.5rem;
+            color: #ccc;
+        }
+        
+        .key-facts {
+            background: rgba(0, 0, 0, 0.3);
+            padding: 1.5rem;
+            border-radius: 10px;
+            margin-top: 2rem;
+        }
+        
+        .key-facts h3 {
+            margin-bottom: 1rem;
+            color: #fff;
+        }
+        
+        .key-facts ul {
+            list-style: none;
+        }
+        
+        .key-facts li {
+            margin-bottom: 0.5rem;
+            color: #ccc;
+        }
+        
+        .key-facts li i {
+            margin-right: 0.5rem;
+            color: var(--secondary-color);
+        }
+        
+        .mission-sections {
+            margin-top: 3rem;
+        }
+        
+        .mission-sections section {
+            margin-bottom: 3rem;
+            padding: 0;
+        }
+        
+        .mission-sections h3 {
+            margin-bottom: 1rem;
+            color: #fff;
+            font-size: 1.5rem;
+        }
+        
+        .mission-sections p {
+            color: #ccc;
+            margin-bottom: 1rem;
+        }
+        
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1rem;
+            margin-top: 2rem;
+        }
+        
+        .gallery-item {
+            border-radius: 10px;
+            overflow: hidden;
+            height: 200px;
+        }
+        
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.3s ease;
+        }
+        
+        .gallery-item:hover img {
+            transform: scale(1.05);
+        }
+        
+        .timeline {
+            position: relative;
+            max-width: 1200px;
+            margin: 2rem auto;
+        }
+        
+        .timeline::after {
+            content: '';
+            position: absolute;
+            width: 6px;
+            background-color: var(--secondary-color);
+            top: 0;
+            bottom: 0;
+            left: 50%;
+            margin-left: -3px;
+        }
+        
+        .timeline-item {
+            padding: 10px 40px;
+            position: relative;
+            width: 50%;
+            box-sizing: border-box;
+        }
+        
+        .timeline-item::after {
+            content: '';
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            background-color: #fff;
+            border: 4px solid var(--secondary-color);
+            border-radius: 50%;
+            top: 15px;
+            z-index: 1;
+        }
+        
+        .left {
+            left: 0;
+        }
+        
+        .right {
+            left: 50%;
+        }
+        
+        .left::after {
+            right: -10px;
+        }
+        
+        .right::after {
+            left: -10px;
+        }
+        
+        .timeline-content {
+            padding: 20px;
+            background: rgba(0, 0, 0, 0.3);
+            border-radius: 10px;
+        }
+        
+        .timeline-content h4 {
+            margin-bottom: 10px;
+            color: #fff;
+        }
+        
+        .timeline-content p {
+            color: #ccc;
+        }
+        
+        .crew-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+        
+        .crew-card {
+            background: rgba(0, 0, 0, 0.3);
+            border-radius: 10px;
+            overflow: hidden;
+            text-align: center;
+            transition: transform 0.3s ease;
+        }
+        
+        .crew-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .crew-image {
+            width: 100%;
+            height: 200px;
+            overflow: hidden;
+        }
+        
+        .crew-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .crew-info {
+            padding: 1.5rem;
+        }
+        
+        .crew-info h4 {
+            color: #fff;
+            margin-bottom: 0.5rem;
+        }
+        
+        .crew-info p {
+            color: #ccc;
+            font-size: 0.9rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        @media (max-width: 768px) {
+            .mission-overview {
+                grid-template-columns: 1fr;
+            }
+            
+            .timeline::after {
+                left: 31px;
+            }
+            
+            .timeline-item {
+                width: 100%;
+                padding-left: 70px;
+                padding-right: 25px;
+            }
+            
+            .timeline-item::after {
+                left: 21px;
+            }
+            
+            .left::after, .right::after {
+                left: 21px;
+            }
+            
+            .right {
+                left: 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container navbar">
+            <a href="/index.html" class="logo">
+                <i class="fas fa-rocket"></i>
+                <span>Space Explorer</span>
+            </a>
+            <nav>
+                <ul class="nav-links">
+                    <li><a href="/index.html">Home</a></li>
+                    <li><a href="/planets.html">Planets</a></li>
+                    <li><a href="/exploration.html">Exploration</a></li>
+                    <li><a href="/about.html">About</a></li>
+                    <li><a href="/contact.html">Contact</a></li>
+                </ul>
+                <div class="hamburger">
+                    <div class="line1"></div>
+                    <div class="line2"></div>
+                    <div class="line3"></div>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Mission Hero Section -->
+    <section class="hero" style="background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('/images/back.png');">
+        <div class="hero-content">
+            <h1>International Space Station</h1>
+            <p>Humanity's Continuous Presence in Space</p>
+        </div>
+    </section>
+
+    <main>
+        <section class="mission-detail">
+            <div class="container">
+                <div class="mission-overview">
+                    <img src="/images/iss.jpeg" alt="International Space Station" class="mission-main-image">
+                    <div class="mission-info">
+                        <h2>Mission Overview</h2>
+                        <p>The International Space Station (ISS) represents one of humanity's greatest achievements in space exploration. As a continuously inhabited orbital laboratory, it has maintained human presence in space since November 2000. The ISS serves as a microgravity research laboratory where crews conduct experiments in biology, physics, astronomy, meteorology, and other fields.</p>
+                        
+                        <p>The station is a joint project between five space agencies: NASA (United States), Roscosmos (Russia), JAXA (Japan), ESA (Europe), and CSA (Canada). It orbits Earth at an average altitude of 400 kilometers (250 miles), completing 16 orbits per day at a speed of 28,000 km/h (17,500 mph).</p>
+                        
+                        <div class="key-facts">
+                            <h3>Key Facts</h3>
+                            <ul>
+                                <li><i class="fas fa-calendar"></i> First Module Launch: November 20, 1998 (Zarya)</li>
+                                <li><i class="fas fa-calendar"></i> First Crew Arrival: November 2, 2000</li>
+                                <li><i class="fas fa-users"></i> Expedition Crews: 68+ (as of 2023)</li>
+                                <li><i class="fas fa-user-astronaut"></i> Total Visitors: 250+ astronauts from 20 countries</li>
+                                <li><i class="fas fa-clock"></i> Continuous Human Presence: 20+ years</li>
+                                <li><i class="fas fa-flask"></i> Scientific Experiments: 3,000+</li>
+                                <li><i class="fas fa-walking"></i> Spacewalks: 250+</li>
+                                <li><i class="fas fa-rocket"></i> Visiting Vehicles: Soyuz, Progress, SpaceX Dragon, Cygnus, HTV, and more</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="mission-sections">
+                    <section class="mission-timeline">
+                        <h3>Mission Timeline</h3>
+                        <div class="timeline">
+                            <div class="timeline-item left">
+                                <div class="timeline-content">
+                                    <h4>November 20, 1998</h4>
+                                    <p>Zarya module launched - First ISS component</p>
+                                </div>
+                            </div>
+                            <div class="timeline-item right">
+                                <div class="timeline-content">
+                                    <h4>December 4, 1998</h4>
+                                    <p>Unity module connected to Zarya</p>
+                                </div>
+                            </div>
+                            <div class="timeline-item left">
+                                <div class="timeline-content">
+                                    <h4>July 12, 2000</h4>
+                                    <p>Zvezda Service Module added</p>
+                                </div>
+                            </div>
+                            <div class="timeline-item right">
+                                <div class="timeline-content">
+                                    <h4>November 2, 2000</h4>
+                                    <p>Expedition 1 crew arrives - Beginning of continuous human presence</p>
+                                </div>
+                            </div>
+                            <div class="timeline-item left">
+                                <div class="timeline-content">
+                                    <h4>2001-2010</h4>
+                                    <p>Major assembly phase with multiple shuttle missions</p>
+                                </div>
+                            </div>
+                            <div class="timeline-item right">
+                                <div class="timeline-content">
+                                    <h4>2011</h4>
+                                    <p>Completion of primary assembly with final shuttle mission</p>
+                                </div>
+                            </div>
+                            <div class="timeline-item left">
+                                <div class="timeline-content">
+                                    <h4>2011-Present</h4>
+                                    <p>Utilization and research phase</p>
+                                </div>
+                            </div>
+                            <div class="timeline-item right">
+                                <div class="timeline-content">
+                                    <h4>2020-Present</h4>
+                                    <p>Commercial crew program begins with SpaceX Dragon</p>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+
+                    <section class="mission-crew">
+                        <h3>Expedition Crews</h3>
+                        <p>The ISS has been continuously occupied by rotating international crews since November 2000. Each expedition typically lasts about six months. Here are some notable expedition crews:</p>
+                        
+                        <div class="crew-grid">
+                            <div class="crew-card">
+                                <div class="crew-image">
+                                    <img src="/images/expedition1.jpeg" alt="Expedition 1">
+                                </div>
+                                <div class="crew-info">
+                                    <h4>Expedition 1</h4>
+                                    <p>First ISS crew</p>
+                                    <p>William Shepherd, Yuri Gidzenko, Sergei Krikalev</p>
+                                    <p>Nov 2000 - Mar 2001</p>
+                                </div>
+                            </div>
+                            <div class="crew-card">
+                                <div class="crew-image">
+                                    <img src="/images/expedition20.jpeg" alt="Expedition 20">
+                                </div>
+                                <div class="crew-info">
+                                    <h4>Expedition 20</h4>
+                                    <p>First six-person crew</p>
+                                    <p>Gennady Padalka, Michael Barratt, Koichi Wakata, and others</p>
+                                    <p>May 2009 - Jul 2009</p>
+                                </div>
+                            </div>
+                            <div class="crew-card">
+                                <div class="crew-image">
+                                    <img src="/images/expedition64.jpeg" alt="Expedition 64">
+                                </div>
+                                <div class="crew-info">
+                                    <h4>Expedition 64</h4>
+                                    <p>First Commercial Crew</p>
+                                    <p>Sergey Ryzhikov, Kate Rubins, Sergey Kud-Sverchkov, and others</p>
+                                    <p>Oct 2020 - Apr 2021</p>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+
+                    <section class="mission-achievements">
+                        <h3>Scientific Achievements</h3>
+                        <p>The ISS has been a platform for thousands of scientific experiments across various disciplines:</p>
+                        <ul>
+                            <li><strong>Human Research:</strong> Studies on bone density loss, muscle atrophy, cardiovascular changes, and other effects of long-duration spaceflight on the human body.</li>
+                            <li><strong>Biology and Biotechnology:</strong> Protein crystal growth, cell and plant growth in microgravity, and vaccine development.</li>
+                            <li><strong>Physical Sciences:</strong> Fluid dynamics, materials science, combustion science, and fundamental physics experiments.</li>
+                            <li><strong>Earth and Space Science:</strong> Earth observation, atmospheric studies, and cosmic ray detection.</li>
+                            <li><strong>Educational Activities:</strong> Student experiments and educational outreach to inspire the next generation of scientists and engineers.</li>
+                        </ul>
+                        <p>Notable experiments include:</p>
+                        <ul>
+                            <li><strong>Alpha Magnetic Spectrometer (AMS):</strong> A particle physics detector searching for dark matter and antimatter.</li>
+                            <li><strong>ECLSS Testing:</strong> Development of life support systems for future deep space missions.</li>
+                            <li><strong>3D Printing in Space:</strong> First demonstration of additive manufacturing in microgravity.</li>
+                            <li><strong>VEGGIE Plant Growth System:</strong> Growing fresh food in space for crew consumption and research.</li>
+                        </ul>
+                    </section>
+
+                    <section class="mission-operations">
+                        <h3>Operations and Support</h3>
+                        <p>The ISS requires extensive ground support and regular resupply missions:</p>
+                        <ul>
+                            <li><strong>Mission Control Centers:</strong> Operations are coordinated between control centers in Houston, Moscow, Tsukuba, Munich, and Montreal.</li>
+                            <li><strong>Resupply Missions:</strong> Regular cargo deliveries by SpaceX Dragon, Northrop Grumman Cygnus, Russian Progress, and previously Japanese HTV spacecraft.</li>
+                            <li><strong>Crew Rotation:</strong> Astronauts travel to and from the station on Russian Soyuz spacecraft and SpaceX Crew Dragon.</li>
+                            <li><strong>Maintenance:</strong> Regular spacewalks (EVAs) are conducted to maintain and upgrade the station's systems.</li>
+                        </ul>
+                    </section>
+
+                    <section class="mission-future">
+                        <h3>Future of the ISS</h3>
+                        <p>The ISS is currently funded through 2030, after which several scenarios are being considered:</p>
+                        <ul>
+                            <li><strong>Commercial Transition:</strong> NASA plans to transition low Earth orbit operations to commercial space stations.</li>
+                            <li><strong>Decommissioning:</strong> Controlled deorbit into the Pacific Ocean after the end of its operational life.</li>
+                            <li><strong>Legacy:</strong> The ISS has established a foundation for international cooperation in space and demonstrated long-duration human spaceflight capabilities that will inform future missions to the Moon and Mars.</li>
+                        </ul>
+                    </section>
+
+                    <section class="mission-gallery">
+                        <h3>Image Gallery</h3>
+                        <div class="gallery">
+                            <div class="gallery-item">
+                                <img src="/images/iss-earth.jpeg" alt="ISS orbiting Earth">
+                            </div>
+                            <div class="gallery-item">
+                                <img src="/images/iss-interior.jpeg" alt="ISS Interior">
+                            </div>
+                            <div class="gallery-item">
+                                <img src="/images/iss-spacewalk.jpeg" alt="Astronaut on Spacewalk">
+                            </div>
+                            <div class="gallery-item">
+                                <img src="/images/iss-cupola.jpeg" alt="Cupola Observation Module">
+                            </div>
+                        </div>
+                    </section>
+                </div>
+            </div>
+        </section>
+
+        <section class="related-missions">
+            <div class="container">
+                <div class="section-title">
+                    <h2>Related Missions</h2>
+                    <p>Explore other historic space missions</p>
+                </div>
+                <div class="missions-grid">
+                    <div class="mission-card">
+                        <div class="mission-image">
+                            <img src="/images/apollo11.jpeg" alt="Apollo 11">
+                        </div>
+                        <div class="mission-content">
+                            <h3>Apollo 11</h3>
+                            <p class="mission-date">July 20, 1969</p>
+                            <p>The first manned mission to land on the Moon.</p>
+                            <a href="apollo11.html" class="btn">Learn More</a>
+                        </div>
+                    </div>
+                    <div class="mission-card">
+                        <div class="mission-image">
+                            <img src="/images/hubble.jpeg" alt="Hubble Space Telescope">
+                        </div>
+                        <div class="mission-content">
+                            <h3>Hubble Space Telescope</h3>
+                            <p class="mission-date">1990 - Present</p>
+                            <p>Revolutionary space telescope that has transformed our understanding of the universe.</p>
+                            <a href="hubble.html" class="btn">Learn More</a>
+                        </div>
+                    </div>
+                    <div class="mission-card">
+                        <div class="mission-image">
+                            <img src="/images/voyager.jpeg" alt="Voyager Program">
+                        </div>
+                        <div class="mission-content">
+                            <h3>Voyager Program</h3>
+                            <p class="mission-date">1977 - Present</p>
+                            <p>Twin spacecraft exploring the outer planets and now interstellar space.</p>
+                            <a href="voyager.html" class="btn">Learn More</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Space Explorer</h3>
+                    <p>Discover the wonders of the universe with our interactive space exploration website.</p>
+                    <div class="social-links">
+                        <a href="https://www.facebook.com/"><i class="fab fa-facebook-f"></i></a>
+                        <a href="https://x.com/"><i class="fab fa-twitter"></i></a>
+                        <a href="https://www.instagram.com/"><i class="fab fa-instagram"></i></a>
+                        <a href="https://www.youtube.com/"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+                <div class="footer-section">
+                    <h3>Contact Us</h3>
+                    <p><i class="fas fa-envelope"></i> info@spaceexplorer.com</p>
+                    <p><i class="fas fa-phone"></i> +1 (123) 456-7890</p>
+                    <p><i class="fas fa-map-marker-alt"></i> 123 Cosmic Way, Universe</p>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2024 Space Explorer - Created by TARACHAND JAKHAR</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="/js/main.js"></script>
+</body>
+</html> 

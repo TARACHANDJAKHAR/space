@@ -1,0 +1,657 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Detailed information about the Voyager Program missions">
+    <title>Voyager Program | Space Explorer</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/styles/main.css">
+    <link rel="stylesheet" href="/styles/Explorationstyle.css">
+    <style>
+        .mission-detail {
+            padding: 4rem 0;
+        }
+        
+        .mission-overview {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            margin-bottom: 3rem;
+        }
+        
+        .mission-main-image {
+            width: 100%;
+            border-radius: 10px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+        }
+        
+        .mission-info h2 {
+            margin-bottom: 1rem;
+            color: #fff;
+        }
+        
+        .mission-info p {
+            margin-bottom: 1.5rem;
+            color: #ccc;
+        }
+        
+        .key-facts {
+            background: rgba(0, 0, 0, 0.3);
+            padding: 1.5rem;
+            border-radius: 10px;
+            margin-top: 2rem;
+        }
+        
+        .key-facts h3 {
+            margin-bottom: 1rem;
+            color: #fff;
+        }
+        
+        .key-facts ul {
+            list-style: none;
+        }
+        
+        .key-facts li {
+            margin-bottom: 0.5rem;
+            color: #ccc;
+        }
+        
+        .key-facts li i {
+            margin-right: 0.5rem;
+            color: var(--secondary-color);
+        }
+        
+        .mission-sections {
+            margin-top: 3rem;
+        }
+        
+        .mission-sections section {
+            margin-bottom: 3rem;
+            padding: 0;
+        }
+        
+        .mission-sections h3 {
+            margin-bottom: 1rem;
+            color: #fff;
+            font-size: 1.5rem;
+        }
+        
+        .mission-sections h4 {
+            margin-bottom: 0.5rem;
+            color: #fff;
+            font-size: 1.2rem;
+        }
+        
+        .mission-sections p {
+            color: #ccc;
+            margin-bottom: 1rem;
+        }
+        
+        .mission-sections ul {
+            color: #ccc;
+            margin-left: 1.5rem;
+            margin-bottom: 1.5rem;
+        }
+        
+        .mission-sections li {
+            margin-bottom: 0.5rem;
+        }
+        
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1rem;
+            margin-top: 2rem;
+        }
+        
+        .gallery-item {
+            border-radius: 10px;
+            overflow: hidden;
+            height: 200px;
+        }
+        
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.3s ease;
+        }
+        
+        .gallery-item:hover img {
+            transform: scale(1.05);
+        }
+        
+        .timeline {
+            position: relative;
+            max-width: 1200px;
+            margin: 2rem auto;
+        }
+        
+        .timeline::after {
+            content: '';
+            position: absolute;
+            width: 6px;
+            background-color: var(--secondary-color);
+            top: 0;
+            bottom: 0;
+            left: 50%;
+            margin-left: -3px;
+        }
+        
+        .timeline-item {
+            padding: 10px 40px;
+            position: relative;
+            width: 50%;
+            box-sizing: border-box;
+        }
+        
+        .timeline-item::after {
+            content: '';
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            background-color: #fff;
+            border: 4px solid var(--secondary-color);
+            border-radius: 50%;
+            top: 15px;
+            z-index: 1;
+        }
+        
+        .left {
+            left: 0;
+        }
+        
+        .right {
+            left: 50%;
+        }
+        
+        .left::after {
+            right: -10px;
+        }
+        
+        .right::after {
+            left: -10px;
+        }
+        
+        .timeline-content {
+            padding: 20px;
+            background: rgba(0, 0, 0, 0.3);
+            border-radius: 10px;
+        }
+        
+        .timeline-content h4 {
+            margin-bottom: 10px;
+            color: #fff;
+        }
+        
+        .timeline-content p {
+            color: #ccc;
+        }
+        
+        .spacecraft-comparison {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+        
+        .spacecraft-card {
+            background: rgba(0, 0, 0, 0.3);
+            border-radius: 10px;
+            overflow: hidden;
+            transition: transform 0.3s ease;
+        }
+        
+        .spacecraft-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .spacecraft-image {
+            width: 100%;
+            height: 200px;
+            overflow: hidden;
+        }
+        
+        .spacecraft-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .spacecraft-info {
+            padding: 1.5rem;
+        }
+        
+        .spacecraft-info h4 {
+            color: #fff;
+            margin-bottom: 1rem;
+        }
+        
+        .spacecraft-info ul {
+            margin-left: 1rem;
+        }
+        
+        .golden-record {
+            background: rgba(0, 0, 0, 0.3);
+            border-radius: 10px;
+            padding: 1.5rem;
+            margin-top: 2rem;
+        }
+        
+        .golden-record-content {
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+            gap: 2rem;
+            align-items: center;
+        }
+        
+        .golden-record-image {
+            width: 100%;
+            border-radius: 50%;
+            overflow: hidden;
+        }
+        
+        .golden-record-image img {
+            width: 100%;
+            height: auto;
+        }
+        
+        @media (max-width: 768px) {
+            .mission-overview {
+                grid-template-columns: 1fr;
+            }
+            
+            .golden-record-content {
+                grid-template-columns: 1fr;
+            }
+            
+            .timeline::after {
+                left: 31px;
+            }
+            
+            .timeline-item {
+                width: 100%;
+                padding-left: 70px;
+                padding-right: 25px;
+            }
+            
+            .timeline-item::after {
+                left: 21px;
+            }
+            
+            .left::after, .right::after {
+                left: 21px;
+            }
+            
+            .right {
+                left: 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container navbar">
+            <a href="/index.html" class="logo">
+                <i class="fas fa-rocket"></i>
+                <span>Space Explorer</span>
+            </a>
+            <nav>
+                <ul class="nav-links">
+                    <li><a href="/index.html">Home</a></li>
+                    <li><a href="/planets.html">Planets</a></li>
+                    <li><a href="/exploration.html">Exploration</a></li>
+                    <li><a href="/about.html">About</a></li>
+                    <li><a href="/contact.html">Contact</a></li>
+                </ul>
+                <div class="hamburger">
+                    <div class="line1"></div>
+                    <div class="line2"></div>
+                    <div class="line3"></div>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Mission Hero Section -->
+    <section class="hero" style="background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('/images/back.png');">
+        <div class="hero-content">
+            <h1>Voyager Program</h1>
+            <p>Humanity's Farthest and Longest-Lived Mission</p>
+        </div>
+    </section>
+
+    <main>
+        <section class="mission-detail">
+            <div class="container">
+                <div class="mission-overview">
+                    <img src="/images/voyager.jpeg" alt="Voyager Spacecraft" class="mission-main-image">
+                    <div class="mission-info">
+                        <h2>Mission Overview</h2>
+                        <p>The Voyager program consists of two identical spacecraft, Voyager 1 and Voyager 2, launched in 1977 to take advantage of a favorable alignment of Jupiter, Saturn, Uranus, and Neptune. This "Grand Tour" configuration happens once every 175 years, allowing the spacecraft to use gravitational assists to visit multiple planets.</p>
+                        
+                        <p>Originally designed to study just Jupiter and Saturn, the mission was extended to include Uranus and Neptune, and then further extended to explore the outer reaches of the solar system. Both spacecraft have now entered interstellar space, making them the most distant human-made objects in existence.</p>
+                        
+                        <div class="key-facts">
+                            <h3>Key Facts</h3>
+                            <ul>
+                                <li><i class="fas fa-calendar"></i> Launch Dates: Voyager 2: August 20, 1977; Voyager 1: September 5, 1977</li>
+                                <li><i class="fas fa-rocket"></i> Launch Vehicle: Titan IIIE-Centaur</li>
+                                <li><i class="fas fa-weight-hanging"></i> Mass: 825.5 kg (1,820 lb) each</li>
+                                <li><i class="fas fa-battery-full"></i> Power Source: Radioisotope Thermoelectric Generators (RTGs)</li>
+                                <li><i class="fas fa-tachometer-alt"></i> Current Speed: Voyager 1: ~38,000 mph; Voyager 2: ~34,000 mph</li>
+                                <li><i class="fas fa-globe"></i> Current Distance: Voyager 1: 14+ billion miles; Voyager 2: 12+ billion miles from Earth</li>
+                                <li><i class="fas fa-clock"></i> Mission Duration: 45+ years and counting</li>
+                                <li><i class="fas fa-broadcast-tower"></i> Communication Time: 21+ hours one-way</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="mission-sections">
+                    <section class="mission-timeline">
+                        <h3>Mission Timeline</h3>
+                        <div class="timeline">
+                            <div class="timeline-item left">
+                                <div class="timeline-content">
+                                    <h4>August 20, 1977</h4>
+                                    <p>Voyager 2 launches from Cape Canaveral</p>
+                                </div>
+                            </div>
+                            <div class="timeline-item right">
+                                <div class="timeline-content">
+                                    <h4>September 5, 1977</h4>
+                                    <p>Voyager 1 launches on a faster trajectory</p>
+                                </div>
+                            </div>
+                            <div class="timeline-item left">
+                                <div class="timeline-content">
+                                    <h4>March 5, 1979</h4>
+                                    <p>Voyager 1 makes closest approach to Jupiter</p>
+                                </div>
+                            </div>
+                            <div class="timeline-item right">
+                                <div class="timeline-content">
+                                    <h4>July 9, 1979</h4>
+                                    <p>Voyager 2 makes closest approach to Jupiter</p>
+                                </div>
+                            </div>
+                            <div class="timeline-item left">
+                                <div class="timeline-content">
+                                    <h4>November 12, 1980</h4>
+                                    <p>Voyager 1 makes closest approach to Saturn</p>
+                                </div>
+                            </div>
+                            <div class="timeline-item right">
+                                <div class="timeline-content">
+                                    <h4>August 25, 1981</h4>
+                                    <p>Voyager 2 makes closest approach to Saturn</p>
+                                </div>
+                            </div>
+                            <div class="timeline-item left">
+                                <div class="timeline-content">
+                                    <h4>January 24, 1986</h4>
+                                    <p>Voyager 2 makes closest approach to Uranus</p>
+                                </div>
+                            </div>
+                            <div class="timeline-item right">
+                                <div class="timeline-content">
+                                    <h4>August 25, 1989</h4>
+                                    <p>Voyager 2 makes closest approach to Neptune</p>
+                                </div>
+                            </div>
+                            <div class="timeline-item left">
+                                <div class="timeline-content">
+                                    <h4>February 14, 1990</h4>
+                                    <p>Voyager 1 takes the famous "Pale Blue Dot" image of Earth</p>
+                                </div>
+                            </div>
+                            <div class="timeline-item right">
+                                <div class="timeline-content">
+                                    <h4>August 25, 2012</h4>
+                                    <p>Voyager 1 enters interstellar space</p>
+                                </div>
+                            </div>
+                            <div class="timeline-item left">
+                                <div class="timeline-content">
+                                    <h4>November 5, 2018</h4>
+                                    <p>Voyager 2 enters interstellar space</p>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+
+                    <section class="spacecraft-details">
+                        <h3>The Spacecraft</h3>
+                        <p>The Voyager spacecraft are identical in design, each equipped with:</p>
+                        
+                        <div class="spacecraft-comparison">
+                            <div class="spacecraft-card">
+                                <div class="spacecraft-image">
+                                    <img src="/images/voyager-diagram.jpeg" alt="Voyager Spacecraft Diagram">
+                                </div>
+                                <div class="spacecraft-info">
+                                    <h4>Scientific Instruments</h4>
+                                    <ul>
+                                        <li>Imaging Science System (cameras)</li>
+                                        <li>Infrared Interferometer Spectrometer</li>
+                                        <li>Ultraviolet Spectrometer</li>
+                                        <li>Triaxial Fluxgate Magnetometer</li>
+                                        <li>Plasma Science Experiment</li>
+                                        <li>Low Energy Charged Particle Detector</li>
+                                        <li>Cosmic Ray Subsystem</li>
+                                        <li>Planetary Radio Astronomy Experiment</li>
+                                        <li>Photopolarimeter Subsystem</li>
+                                        <li>Plasma Wave Subsystem</li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="spacecraft-card">
+                                <div class="spacecraft-info">
+                                    <h4>Power and Communication</h4>
+                                    <ul>
+                                        <li><strong>Power Source:</strong> Three Radioisotope Thermoelectric Generators (RTGs) using plutonium-238</li>
+                                        <li><strong>Initial Power:</strong> 470 watts</li>
+                                        <li><strong>Current Power:</strong> ~250 watts (decreasing by ~4 watts per year)</li>
+                                        <li><strong>Communication:</strong> 3.7-meter high-gain antenna</li>
+                                        <li><strong>Data Rate:</strong> Originally 115.2 kilobits per second at Jupiter, now reduced to 160 bits per second</li>
+                                        <li><strong>Computer:</strong> Digital tape recorder and three interconnected computer systems</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+
+                    <section class="golden-record">
+                        <h3>The Golden Record</h3>
+                        <div class="golden-record-content">
+                            <div class="golden-record-image">
+                                <img src="/images/golden-record.jpeg" alt="Voyager Golden Record">
+                            </div>
+                            <div>
+                                <p>Each Voyager spacecraft carries a gold-plated copper phonograph record containing sounds and images selected to portray the diversity of life and culture on Earth. The records are intended as a message to any extraterrestrial intelligence that might find them, and a symbolic statement for humans.</p>
+                                <p>The contents of the record were selected by a committee chaired by Carl Sagan and include:</p>
+                                <ul>
+                                    <li>115 images of Earth, life forms, and human activities</li>
+                                    <li>Greetings in 55 languages</li>
+                                    <li>Sounds of Earth (thunder, volcanoes, animals, etc.)</li>
+                                    <li>90 minutes of music from different cultures and eras</li>
+                                    <li>Printed message from U.S. President Jimmy Carter</li>
+                                </ul>
+                                <p>The record includes instructions for playback and a pulsar map showing Earth's location.</p>
+                            </div>
+                        </div>
+                    </section>
+
+                    <section class="mission-discoveries">
+                        <h3>Key Discoveries</h3>
+                        
+                        <h4>Jupiter</h4>
+                        <ul>
+                            <li>Discovery of Jupiter's faint ring system</li>
+                            <li>Active volcanoes on Io (first active volcanoes observed beyond Earth)</li>
+                            <li>Complex structures in Jupiter's atmosphere</li>
+                            <li>Details of the Great Red Spot</li>
+                        </ul>
+                        
+                        <h4>Saturn</h4>
+                        <ul>
+                            <li>Complex structure of Saturn's rings, including thousands of ringlets</li>
+                            <li>Discovery of several new moons</li>
+                            <li>Detailed observations of Titan's atmosphere</li>
+                            <li>Braided rings and "spokes" in the ring system</li>
+                        </ul>
+                        
+                        <h4>Uranus (Voyager 2 only)</h4>
+                        <ul>
+                            <li>Discovery of 10 new moons</li>
+                            <li>Discovery of two new rings</li>
+                            <li>Measurement of Uranus's rotation period</li>
+                            <li>Observation of an unusual magnetic field tilted 60 degrees from the planet's axis</li>
+                        </ul>
+                        
+                        <h4>Neptune (Voyager 2 only)</h4>
+                        <ul>
+                            <li>Discovery of the Great Dark Spot (a storm similar to Jupiter's Great Red Spot)</li>
+                            <li>Discovery of six new moons</li>
+                            <li>Complete ring system with ring arcs</li>
+                            <li>Observation of active geysers on Triton</li>
+                        </ul>
+                        
+                        <h4>Interstellar Space</h4>
+                        <ul>
+                            <li>First direct measurements of the interstellar medium</li>
+                            <li>Data on the boundary between the solar system and interstellar space</li>
+                            <li>Measurements of cosmic rays and magnetic fields beyond the heliosphere</li>
+                        </ul>
+                    </section>
+
+                    <section class="mission-current-status">
+                        <h3>Current Status</h3>
+                        <p>Both Voyager spacecraft continue to operate, sending valuable scientific data back to Earth despite being launched over 45 years ago:</p>
+                        <ul>
+                            <li><strong>Voyager 1:</strong> Currently in interstellar space, approximately 14.5 billion miles (23.3 billion kilometers) from Earth. It crossed the heliopause (the boundary of the solar system) in August 2012.</li>
+                            <li><strong>Voyager 2:</strong> Also in interstellar space, approximately 12 billion miles (19.3 billion kilometers) from Earth. It crossed the heliopause in November 2018.</li>
+                        </ul>
+                        <p>Due to diminishing power from their RTGs, instruments are being turned off sequentially to conserve energy. The spacecraft are expected to continue transmitting data until approximately 2025, after which they will continue their silent journey through interstellar space.</p>
+                    </section>
+
+                    <section class="mission-legacy">
+                        <h3>Legacy</h3>
+                        <p>The Voyager program represents one of humanity's greatest achievements in space exploration:</p>
+                        <ul>
+                            <li>Completed the first "Grand Tour" of the outer planets</li>
+                            <li>Provided the first detailed images and data of the outer planets</li>
+                            <li>First human-made objects to enter interstellar space</li>
+                            <li>Demonstrated extraordinary engineering with spacecraft still functioning after 45+ years</li>
+                            <li>Inspired generations of scientists, engineers, and the public</li>
+                            <li>Carry humanity's message to the stars via the Golden Records</li>
+                        </ul>
+                        <p>The data collected by the Voyager spacecraft continues to be analyzed and has informed numerous scientific papers and discoveries decades after the primary mission ended.</p>
+                    </section>
+
+                    <section class="mission-gallery">
+                        <h3>Image Gallery</h3>
+                        <div class="gallery">
+                            <div class="gallery-item">
+                                <img src="/images/voyager-jupiter.jpeg" alt="Jupiter by Voyager">
+                            </div>
+                            <div class="gallery-item">
+                                <img src="/images/voyager-saturn.jpeg" alt="Saturn by Voyager">
+                            </div>
+                            <div class="gallery-item">
+                                <img src="/images/voyager-uranus.jpeg" alt="Uranus by Voyager">
+                            </div>
+                            <div class="gallery-item">
+                                <img src="/images/voyager-neptune.jpeg" alt="Neptune by Voyager">
+                            </div>
+                            <div class="gallery-item">
+                                <img src="/images/pale-blue-dot.jpeg" alt="Pale Blue Dot">
+                            </div>
+                            <div class="gallery-item">
+                                <img src="/images/voyager-launch.jpeg" alt="Voyager Launch">
+                            </div>
+                        </div>
+                    </section>
+                </div>
+            </div>
+        </section>
+
+        <section class="related-missions">
+            <div class="container">
+                <div class="section-title">
+                    <h2>Related Missions</h2>
+                    <p>Explore other historic space missions</p>
+                </div>
+                <div class="missions-grid">
+                    <div class="mission-card">
+                        <div class="mission-image">
+                            <img src="/images/apollo11.jpeg" alt="Apollo 11">
+                        </div>
+                        <div class="mission-content">
+                            <h3>Apollo 11</h3>
+                            <p class="mission-date">July 20, 1969</p>
+                            <p>The first manned mission to land on the Moon.</p>
+                            <a href="apollo11.html" class="btn">Learn More</a>
+                        </div>
+                    </div>
+                    <div class="mission-card">
+                        <div class="mission-image">
+                            <img src="/images/iss.jpeg" alt="International Space Station">
+                        </div>
+                        <div class="mission-content">
+                            <h3>International Space Station</h3>
+                            <p class="mission-date">1998 - Present</p>
+                            <p>Humanity's home in orbit and international laboratory.</p>
+                            <a href="iss.html" class="btn">Learn More</a>
+                        </div>
+                    </div>
+                    <div class="mission-card">
+                        <div class="mission-image">
+                            <img src="/images/hubble.jpeg" alt="Hubble Space Telescope">
+                        </div>
+                        <div class="mission-content">
+                            <h3>Hubble Space Telescope</h3>
+                            <p class="mission-date">1990 - Present</p>
+                            <p>Revolutionary space telescope that has transformed our understanding of the universe.</p>
+                            <a href="hubble.html" class="btn">Learn More</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Space Explorer</h3>
+                    <p>Discover the wonders of the universe with our interactive space exploration website.</p>
+                    <div class="social-links">
+                        <a href="https://www.facebook.com/"><i class="fab fa-facebook-f"></i></a>
+                        <a href="https://x.com/"><i class="fab fa-twitter"></i></a>
+                        <a href="https://www.instagram.com/"><i class="fab fa-instagram"></i></a>
+                        <a href="https://www.youtube.com/"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+                <div class="footer-section">
+                    <h3>Contact Us</h3>
+                    <p><i class="fas fa-envelope"></i> info@spaceexplorer.com</p>
+                    <p><i class="fas fa-phone"></i> +1 (123) 456-7890</p>
+                    <p><i class="fas fa-map-marker-alt"></i> 123 Cosmic Way, Universe</p>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2024 Space Explorer - Created by TARACHAND JAKHAR</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="/js/main.js"></script>
+</body>
+</html> 

@@ -1,0 +1,61 @@
+/* Technology Section */
+.space-technology {
+    padding: 4rem 0;
+    background: rgba(0, 0, 0, 0.3);
+}
+
+.technology-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    margin-top: 2rem;
+}
+
+.technology-card {
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 10px;
+    overflow: hidden;
+    transition: transform 0.3s ease;
+}
+
+.technology-card:hover {
+    transform: translateY(-5px);
+    background: rgba(255, 255, 255, 0.1);
+}
+
+.technology-image {
+    height: 200px;
+    overflow: hidden;
+}
+
+.technology-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+}
+
+.technology-card:hover .technology-image img {
+    transform: scale(1.05);
+}
+
+.technology-content {
+    padding: 1.5rem;
+}
+
+.technology-content h3 {
+    color: #fff;
+    margin-bottom: 0.5rem;
+}
+
+.technology-content p {
+    color: #ccc;
+    margin-bottom: 1rem;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .technology-grid {
+        grid-template-columns: 1fr;
+    }
+} 

@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Generate Stars Background</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      background-color: #000;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      flex-direction: column;
+    }
+
+    canvas {
+      border: 1px solid #333;
+    }
+
+    .controls {
+      margin-top: 20px;
+      color: white;
+      font-family: Arial, sans-serif;
+    }
+
+    button {
+      padding: 10px 20px;
+      background-color: #0b3d91;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      margin: 10px;
+    }
+
+    button:hover {
+      background-color: #fc3d21;
+    }
+  </style>
+</head>
+
+<body>
+  <canvas id="starsCanvas" width="1920" height="1080"></canvas>
+  <div class="controls">
+    <p>Click "Generate Stars" to create a new star pattern, then right-click on the canvas and select "Save Image As..."
+      to download.</p>
+    <button id="generateBtn">Generate Stars</button>
+    <button id="downloadBtn">Download Image</button>
+  </div>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const canvas = document.getElementById('starsCanvas');
+      const ctx = canvas.getContext('2d');
+      const generateBtn = document.getElementById('generateBtn');
+      const downloadBtn = document.getElementById('downloadBtn');
+
+      // Generate stars function
+      function generateStars() {
+        // Clear canvas
+        ctx.fillStyle = '#000';
+        ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+        // Generate stars
+        const numStars = Math.floor(Math.random() * 1000) + 1000; // 1000-2000 stars
+
+        for (let i = 0; i < numStars; i++) {
+          const x = Math.random() * canvas.width;
+          const y = Math.random() * canvas.height;
+          const radius = Math.random() * 1.5;
+          const opacity = Math.random();
+
+          // Draw star
+          ctx.beginPath();
+          ctx.arc(x, y, radius, 0, Math.PI * 2);
+          ctx.fillStyle = `rgba(255, 255, 255, ${opacity})`;
+          ctx.fill();
+        }
+
+        // Add some colored stars
+        const numColoredStars = Math.floor(Math.random() * 50) + 50;
+        const colors = ['#ff9999', '#99ff99', '#9999ff', '#ffff99', '#ff99ff'];
+
+        for (let i = 0; i < numColoredStars; i++) {
+          const x = Math.random() * canvas.width;
+          const y = Math.random() * canvas.height;
+          const radius = Math.random() * 2 + 0.5;
+          const opacity = Math.random() * 0.5 + 0.5;
+          const color = colors[Math.floor(Math.random() * colors.length)];
+
+          // Draw colored star
+          ctx.beginPath();
+          ctx.arc(x, y, radius, 0, Math.PI * 2);
+          ctx.fillStyle = color;
+          ctx.globalAlpha = opacity;
+          ctx.fill();
+          ctx.globalAlpha = 1;
+        }
+
+        // Add some nebula-like effects
+        for (let i = 0; i < 5; i++) {
+          const x = Math.random() * canvas.width;
+          const y = Math.random() * canvas.height;
+          const radius = Math.random() * 300 + 100;
+          const gradient = ctx.createRadialGradient(x, y, 0, x, y, radius);
+
+          const hue = Math.floor(Math.random() * 360);
+          gradient.addColorStop(0, `hsla(${hue}, 100%, 50%, 0.05)`);
+          gradient.addColorStop(1, 'transparent');
+
+          ctx.fillStyle = gradient;
+          ctx.fillRect(0, 0, canvas.width, canvas.height);
+        }
+      }
+
+      // Download image function
+      function downloadImage() {
+        const link = document.createElement('a');
+        link.download = 'stars-bg.jpg';
+        link.href = canvas.toDataURL('image/jpeg', 0.9);
+        link.click();
+      }
+
+      // Event listeners
+      generateBtn.addEventListener('click', generateStars);
+      downloadBtn.addEventListener('click', downloadImage);
+
+      // Generate initial stars
+      generateStars();
+    });
+  </script>
+</body>
+
+</html>

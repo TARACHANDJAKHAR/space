@@ -1,0 +1,665 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Detailed information about the Hubble Space Telescope mission">
+    <title>Hubble Space Telescope | Space Explorer</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/styles/main.css">
+    <link rel="stylesheet" href="/styles/Explorationstyle.css">
+    <style>
+        .mission-detail {
+            padding: 4rem 0;
+        }
+        
+        .mission-overview {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            margin-bottom: 3rem;
+        }
+        
+        .mission-main-image {
+            width: 100%;
+            border-radius: 10px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+        }
+        
+        .mission-info h2 {
+            margin-bottom: 1rem;
+            color: #fff;
+        }
+        
+        .mission-info p {
+            margin-bottom: 1.5rem;
+            color: #ccc;
+        }
+        
+        .key-facts {
+            background: rgba(0, 0, 0, 0.3);
+            padding: 1.5rem;
+            border-radius: 10px;
+            margin-top: 2rem;
+        }
+        
+        .key-facts h3 {
+            margin-bottom: 1rem;
+            color: #fff;
+        }
+        
+        .key-facts ul {
+            list-style: none;
+        }
+        
+        .key-facts li {
+            margin-bottom: 0.5rem;
+            color: #ccc;
+        }
+        
+        .key-facts li i {
+            margin-right: 0.5rem;
+            color: var(--secondary-color);
+        }
+        
+        .mission-sections {
+            margin-top: 3rem;
+        }
+        
+        .mission-sections section {
+            margin-bottom: 3rem;
+            padding: 0;
+        }
+        
+        .mission-sections h3 {
+            margin-bottom: 1rem;
+            color: #fff;
+            font-size: 1.5rem;
+        }
+        
+        .mission-sections h4 {
+            margin-bottom: 0.5rem;
+            color: #fff;
+            font-size: 1.2rem;
+        }
+        
+        .mission-sections p {
+            color: #ccc;
+            margin-bottom: 1rem;
+        }
+        
+        .mission-sections ul {
+            color: #ccc;
+            margin-left: 1.5rem;
+            margin-bottom: 1.5rem;
+        }
+        
+        .mission-sections li {
+            margin-bottom: 0.5rem;
+        }
+        
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1rem;
+            margin-top: 2rem;
+        }
+        
+        .gallery-item {
+            border-radius: 10px;
+            overflow: hidden;
+            height: 200px;
+        }
+        
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.3s ease;
+        }
+        
+        .gallery-item:hover img {
+            transform: scale(1.05);
+        }
+        
+        .timeline {
+            position: relative;
+            max-width: 1200px;
+            margin: 2rem auto;
+        }
+        
+        .timeline::after {
+            content: '';
+            position: absolute;
+            width: 6px;
+            background-color: var(--secondary-color);
+            top: 0;
+            bottom: 0;
+            left: 50%;
+            margin-left: -3px;
+        }
+        
+        .timeline-item {
+            padding: 10px 40px;
+            position: relative;
+            width: 50%;
+            box-sizing: border-box;
+        }
+        
+        .timeline-item::after {
+            content: '';
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            background-color: #fff;
+            border: 4px solid var(--secondary-color);
+            border-radius: 50%;
+            top: 15px;
+            z-index: 1;
+        }
+        
+        .left {
+            left: 0;
+        }
+        
+        .right {
+            left: 50%;
+        }
+        
+        .left::after {
+            right: -10px;
+        }
+        
+        .right::after {
+            left: -10px;
+        }
+        
+        .timeline-content {
+            padding: 20px;
+            background: rgba(0, 0, 0, 0.3);
+            border-radius: 10px;
+        }
+        
+        .timeline-content h4 {
+            margin-bottom: 10px;
+            color: #fff;
+        }
+        
+        .timeline-content p {
+            color: #ccc;
+        }
+        
+        .discoveries-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+        
+        .discovery-card {
+            background: rgba(0, 0, 0, 0.3);
+            border-radius: 10px;
+            overflow: hidden;
+            transition: transform 0.3s ease;
+        }
+        
+        .discovery-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .discovery-image {
+            width: 100%;
+            height: 200px;
+            overflow: hidden;
+        }
+        
+        .discovery-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .discovery-info {
+            padding: 1.5rem;
+        }
+        
+        .discovery-info h4 {
+            color: #fff;
+            margin-bottom: 1rem;
+        }
+        
+        .discovery-info p {
+            color: #ccc;
+            margin-bottom: 0.5rem;
+        }
+        
+        .telescope-specs {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+        
+        .spec-card {
+            background: rgba(0, 0, 0, 0.3);
+            border-radius: 10px;
+            padding: 1.5rem;
+            transition: transform 0.3s ease;
+        }
+        
+        .spec-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .spec-card h4 {
+            color: #fff;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+        }
+        
+        .spec-card h4 i {
+            margin-right: 0.5rem;
+            color: var(--secondary-color);
+        }
+        
+        .spec-card ul {
+            margin-left: 1rem;
+        }
+        
+        @media (max-width: 768px) {
+            .mission-overview {
+                grid-template-columns: 1fr;
+            }
+            
+            .timeline::after {
+                left: 31px;
+            }
+            
+            .timeline-item {
+                width: 100%;
+                padding-left: 70px;
+                padding-right: 25px;
+            }
+            
+            .timeline-item::after {
+                left: 21px;
+            }
+            
+            .left::after, .right::after {
+                left: 21px;
+            }
+            
+            .right {
+                left: 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container navbar">
+            <a href="/index.html" class="logo">
+                <i class="fas fa-rocket"></i>
+                <span>Space Explorer</span>
+            </a>
+            <nav>
+                <ul class="nav-links">
+                    <li><a href="/index.html">Home</a></li>
+                    <li><a href="/planets.html">Planets</a></li>
+                    <li><a href="/exploration.html">Exploration</a></li>
+                    <li><a href="/about.html">About</a></li>
+                    <li><a href="/contact.html">Contact</a></li>
+                </ul>
+                <div class="hamburger">
+                    <div class="line1"></div>
+                    <div class="line2"></div>
+                    <div class="line3"></div>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Mission Hero Section -->
+    <section class="hero" style="background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('/images/back.png');">
+        <div class="hero-content">
+            <h1>Hubble Space Telescope</h1>
+            <p>Revolutionizing Our View of the Universe</p>
+        </div>
+    </section>
+
+    <main>
+        <section class="mission-detail">
+            <div class="container">
+                <div class="mission-overview">
+                    <img src="/images/hubble.jpeg" alt="Hubble Space Telescope" class="mission-main-image">
+                    <div class="mission-info">
+                        <h2>Mission Overview</h2>
+                        <p>The Hubble Space Telescope (HST) is one of NASA's Great Observatories and was launched into low Earth orbit in 1990. Named after astronomer Edwin Hubble, this space-based observatory has revolutionized astronomy by providing unprecedented deep and clear views of the universe, ranging from our own solar system to extremely remote galaxies forming shortly after the Big Bang.</p>
+                        
+                        <p>Positioned above the distortion of Earth's atmosphere, Hubble has an unobstructed view of the universe, allowing it to capture images with substantially higher resolution than ground-based telescopes. It has become one of the most important instruments in the history of astronomy, with its observations helping resolve many long-standing problems in astrophysics.</p>
+                        
+                        <div class="key-facts">
+                            <h3>Key Facts</h3>
+                            <ul>
+                                <li><i class="fas fa-calendar"></i> Launch Date: April 24, 1990</li>
+                                <li><i class="fas fa-rocket"></i> Launch Vehicle: Space Shuttle Discovery (STS-31)</li>
+                                <li><i class="fas fa-weight-hanging"></i> Mass: 11,110 kg (24,490 lb)</li>
+                                <li><i class="fas fa-ruler-horizontal"></i> Dimensions: 13.2 m × 4.2 m (43.5 ft × 14 ft)</li>
+                                <li><i class="fas fa-globe"></i> Orbit: 535 km (332 mi) altitude</li>
+                                <li><i class="fas fa-clock"></i> Orbital Period: 95 minutes</li>
+                                <li><i class="fas fa-camera"></i> Primary Mirror Diameter: 2.4 m (7.9 ft)</li>
+                                <li><i class="fas fa-wrench"></i> Servicing Missions: 5 (1993, 1997, 1999, 2002, 2009)</li>
+                                <li><i class="fas fa-database"></i> Data Collected: 150+ terabytes</li>
+                                <li><i class="fas fa-file-alt"></i> Scientific Papers: 15,000+</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="mission-sections">
+                    <section class="mission-timeline">
+                        <h3>Mission Timeline</h3>
+                        <div class="timeline">
+                            <div class="timeline-item left">
+                                <div class="timeline-content">
+                                    <h4>April 24, 1990</h4>
+                                    <p>Launch aboard Space Shuttle Discovery</p>
+                                </div>
+                            </div>
+                            <div class="timeline-item right">
+                                <div class="timeline-content">
+                                    <h4>June 1990</h4>
+                                    <p>Discovery of spherical aberration in primary mirror</p>
+                                </div>
+                            </div>
+                            <div class="timeline-item left">
+                                <div class="timeline-content">
+                                    <h4>December 1993</h4>
+                                    <p>Servicing Mission 1 (SM1): Installation of corrective optics (COSTAR)</p>
+                                </div>
+                            </div>
+                            <div class="timeline-item right">
+                                <div class="timeline-content">
+                                    <h4>February 1997</h4>
+                                    <p>Servicing Mission 2 (SM2): Installation of STIS and NICMOS instruments</p>
+                                </div>
+                            </div>
+                            <div class="timeline-item left">
+                                <div class="timeline-content">
+                                    <h4>December 1999</h4>
+                                    <p>Servicing Mission 3A (SM3A): Gyroscope replacements and computer upgrade</p>
+                                </div>
+                            </div>
+                            <div class="timeline-item right">
+                                <div class="timeline-content">
+                                    <h4>March 2002</h4>
+                                    <p>Servicing Mission 3B (SM3B): Installation of Advanced Camera for Surveys (ACS)</p>
+                                </div>
+                            </div>
+                            <div class="timeline-item left">
+                                <div class="timeline-content">
+                                    <h4>May 2009</h4>
+                                    <p>Servicing Mission 4 (SM4): Final servicing mission, installation of WFC3 and COS</p>
+                                </div>
+                            </div>
+                            <div class="timeline-item right">
+                                <div class="timeline-content">
+                                    <h4>April 24, 2020</h4>
+                                    <p>Hubble celebrates 30 years in space</p>
+                                </div>
+                            </div>
+                            <div class="timeline-item left">
+                                <div class="timeline-content">
+                                    <h4>2021</h4>
+                                    <p>Recovery from computer anomaly, continuing operations</p>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+
+                    <section class="telescope-design">
+                        <h3>Telescope Design and Instruments</h3>
+                        <p>The Hubble Space Telescope is a Cassegrain reflector with a 2.4-meter primary mirror. Its design allows for servicing missions to repair and upgrade its systems and scientific instruments.</p>
+                        
+                        <div class="telescope-specs">
+                            <div class="spec-card">
+                                <h4><i class="fas fa-cogs"></i> Optical System</h4>
+                                <ul>
+                                    <li>Primary Mirror: 2.4 m (7.9 ft) diameter</li>
+                                    <li>Focal Length: 57.6 m (189 ft)</li>
+                                    <li>Optical Design: Ritchey-Chrétien Cassegrain</li>
+                                    <li>Wavelength Range: 115-2500 nm (ultraviolet to near-infrared)</li>
+                                    <li>Angular Resolution: 0.05 arcseconds</li>
+                                </ul>
+                            </div>
+                            <div class="spec-card">
+                                <h4><i class="fas fa-camera"></i> Current Instruments</h4>
+                                <ul>
+                                    <li>Wide Field Camera 3 (WFC3) - 2009</li>
+                                    <li>Cosmic Origins Spectrograph (COS) - 2009</li>
+                                    <li>Advanced Camera for Surveys (ACS) - 2002</li>
+                                    <li>Space Telescope Imaging Spectrograph (STIS) - 1997</li>
+                                    <li>Near Infrared Camera and Multi-Object Spectrometer (NICMOS) - 1997</li>
+                                    <li>Fine Guidance Sensors (FGS) - Original</li>
+                                </ul>
+                            </div>
+                            <div class="spec-card">
+                                <h4><i class="fas fa-satellite"></i> Spacecraft Systems</h4>
+                                <ul>
+                                    <li>Power: Two 25 ft solar arrays generating 5,500 watts</li>
+                                    <li>Communications: S-band and Ku-band antennas</li>
+                                    <li>Data Transmission: Up to 1 Mbps</li>
+                                    <li>Pointing Accuracy: 0.007 arcseconds</li>
+                                    <li>Computers: Multiple redundant systems</li>
+                                    <li>Thermal Control: Multi-layer insulation and heaters</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </section>
+
+                    <section class="mission-discoveries">
+                        <h3>Major Discoveries</h3>
+                        <p>Hubble has made numerous groundbreaking discoveries that have transformed our understanding of the universe:</p>
+                        
+                        <div class="discoveries-grid">
+                            <div class="discovery-card">
+                                <div class="discovery-image">
+                                    <img src="/images/hubble-deep-field.jpeg" alt="Hubble Deep Field">
+                                </div>
+                                <div class="discovery-info">
+                                    <h4>Hubble Deep Field</h4>
+                                    <p>In 1995, Hubble pointed at an apparently empty region of space for 10 days, revealing over 3,000 galaxies of various ages, shapes, and sizes, some as old as 12 billion years. This revolutionized our understanding of the early universe.</p>
+                                </div>
+                            </div>
+                            <div class="discovery-card">
+                                <div class="discovery-image">
+                                    <img src="/images/hubble-expansion.jpeg" alt="Accelerating Universe">
+                                </div>
+                                <div class="discovery-info">
+                                    <h4>Accelerating Universe</h4>
+                                    <p>Hubble's observations of distant supernovae helped confirm that the expansion of the universe is accelerating, leading to the theory of dark energy. This discovery was awarded the Nobel Prize in Physics in 2011.</p>
+                                </div>
+                            </div>
+                            <div class="discovery-card">
+                                <div class="discovery-image">
+                                    <img src="/images/hubble-exoplanets.jpeg" alt="Exoplanet Atmospheres">
+                                </div>
+                                <div class="discovery-info">
+                                    <h4>Exoplanet Atmospheres</h4>
+                                    <p>Hubble made the first detection of an organic molecule in the atmosphere of an exoplanet and has continued to study exoplanet atmospheres, providing insights into worlds beyond our solar system.</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="discoveries-grid" style="margin-top: 2rem;">
+                            <div class="discovery-card">
+                                <div class="discovery-image">
+                                    <img src="/images/hubble-black-hole.jpeg" alt="Supermassive Black Holes">
+                                </div>
+                                <div class="discovery-info">
+                                    <h4>Supermassive Black Holes</h4>
+                                    <p>Hubble provided evidence that supermassive black holes exist at the centers of most galaxies, including our own Milky Way, and helped establish the relationship between black hole mass and galaxy properties.</p>
+                                </div>
+                            </div>
+                            <div class="discovery-card">
+                                <div class="discovery-image">
+                                    <img src="/images/hubble-age.jpeg" alt="Age of the Universe">
+                                </div>
+                                <div class="discovery-info">
+                                    <h4>Age of the Universe</h4>
+                                    <p>By measuring the distances to Cepheid variable stars in distant galaxies, Hubble helped refine the Hubble constant, which determines the age of the universe, now estimated at 13.8 billion years.</p>
+                                </div>
+                            </div>
+                            <div class="discovery-card">
+                                <div class="discovery-image">
+                                    <img src="/images/hubble-pillars.jpeg" alt="Pillars of Creation">
+                                </div>
+                                <div class="discovery-info">
+                                    <h4>Pillars of Creation</h4>
+                                    <p>Hubble's iconic image of the Eagle Nebula's "Pillars of Creation" revealed how new stars are born within clouds of gas and dust, becoming one of the most famous astronomical images ever taken.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+
+                    <section class="servicing-missions">
+                        <h3>Servicing Missions</h3>
+                        <p>A unique aspect of Hubble is that it was designed to be serviced by astronauts. Five servicing missions were conducted using the Space Shuttle:</p>
+                        <ul>
+                            <li><strong>Servicing Mission 1 (1993):</strong> Installed corrective optics (COSTAR) to fix the spherical aberration in the primary mirror, replacing the original Wide Field/Planetary Camera with WF/PC2.</li>
+                            <li><strong>Servicing Mission 2 (1997):</strong> Installed two new instruments: the Space Telescope Imaging Spectrograph (STIS) and the Near Infrared Camera and Multi-Object Spectrometer (NICMOS).</li>
+                            <li><strong>Servicing Mission 3A (1999):</strong> Replaced all six gyroscopes, installed a new computer, and replaced a fine guidance sensor.</li>
+                            <li><strong>Servicing Mission 3B (2002):</strong> Installed the Advanced Camera for Surveys (ACS), which increased Hubble's discovery efficiency by a factor of 10.</li>
+                            <li><strong>Servicing Mission 4 (2009):</strong> The final servicing mission installed the Wide Field Camera 3 (WFC3) and the Cosmic Origins Spectrograph (COS), repaired ACS and STIS, and replaced gyroscopes, batteries, and thermal insulation.</li>
+                        </ul>
+                        <p>These servicing missions not only repaired the telescope but also significantly upgraded its capabilities, allowing it to remain at the forefront of astronomical research for over three decades.</p>
+                    </section>
+
+                    <section class="mission-legacy">
+                        <h3>Legacy and Impact</h3>
+                        <p>Hubble's impact on astronomy and public perception of space has been profound:</p>
+                        <ul>
+                            <li><strong>Scientific Impact:</strong> Over 15,000 scientific papers have been published based on Hubble data, making it one of the most productive scientific instruments ever built.</li>
+                            <li><strong>Public Engagement:</strong> Hubble's stunning images have captivated the public imagination and increased interest in astronomy and space exploration.</li>
+                            <li><strong>Technology Development:</strong> Advances made for Hubble have benefited other space missions and Earth-based technologies, including medical imaging.</li>
+                            <li><strong>Educational Value:</strong> Hubble data is used in classrooms worldwide, inspiring new generations of scientists and engineers.</li>
+                            <li><strong>International Collaboration:</strong> As a joint project between NASA and ESA, Hubble has fostered international cooperation in space science.</li>
+                        </ul>
+                    </section>
+
+                    <section class="mission-future">
+                        <h3>Future of Hubble</h3>
+                        <p>While Hubble is aging, it continues to operate and make important discoveries:</p>
+                        <ul>
+                            <li>Current projections suggest Hubble could remain operational until at least 2025, possibly longer.</li>
+                            <li>Hubble will work in tandem with the James Webb Space Telescope (JWST), launched in 2021, with Hubble's strengths in ultraviolet and visible light complementing Webb's infrared capabilities.</li>
+                            <li>NASA continues to monitor and maintain the telescope's systems remotely, addressing issues as they arise.</li>
+                            <li>The scientific community continues to propose new observations and research programs, ensuring Hubble remains scientifically productive.</li>
+                        </ul>
+                    </section>
+
+                    <section class="mission-gallery">
+                        <h3>Image Gallery</h3>
+                        <div class="gallery">
+                            <div class="gallery-item">
+                                <img src="/images/hubble-butterfly.jpeg" alt="Butterfly Nebula">
+                            </div>
+                            <div class="gallery-item">
+                                <img src="/images/hubble-crab.jpeg" alt="Crab Nebula">
+                            </div>
+                            <div class="gallery-item">
+                                <img src="/images/hubble-sombrero.jpeg" alt="Sombrero Galaxy">
+                            </div>
+                            <div class="gallery-item">
+                                <img src="/images/hubble-whirlpool.jpeg" alt="Whirlpool Galaxy">
+                            </div>
+                            <div class="gallery-item">
+                                <img src="/images/hubble-servicing.jpeg" alt="Hubble Servicing Mission">
+                            </div>
+                            <div class="gallery-item">
+                                <img src="/images/hubble-launch.jpeg" alt="Hubble Launch">
+                            </div>
+                        </div>
+                    </section>
+                </div>
+            </div>
+        </section>
+
+        <section class="related-missions">
+            <div class="container">
+                <div class="section-title">
+                    <h2>Related Missions</h2>
+                    <p>Explore other historic space missions</p>
+                </div>
+                <div class="missions-grid">
+                    <div class="mission-card">
+                        <div class="mission-image">
+                            <img src="/images/apollo11.jpeg" alt="Apollo 11">
+                        </div>
+                        <div class="mission-content">
+                            <h3>Apollo 11</h3>
+                            <p class="mission-date">July 20, 1969</p>
+                            <p>The first manned mission to land on the Moon.</p>
+                            <a href="apollo11.html" class="btn">Learn More</a>
+                        </div>
+                    </div>
+                    <div class="mission-card">
+                        <div class="mission-image">
+                            <img src="/images/iss.jpeg" alt="International Space Station">
+                        </div>
+                        <div class="mission-content">
+                            <h3>International Space Station</h3>
+                            <p class="mission-date">1998 - Present</p>
+                            <p>Humanity's home in orbit and international laboratory.</p>
+                            <a href="iss.html" class="btn">Learn More</a>
+                        </div>
+                    </div>
+                    <div class="mission-card">
+                        <div class="mission-image">
+                            <img src="/images/voyager.jpeg" alt="Voyager Program">
+                        </div>
+                        <div class="mission-content">
+                            <h3>Voyager Program</h3>
+                            <p class="mission-date">1977 - Present</p>
+                            <p>Twin spacecraft exploring the outer planets and now interstellar space.</p>
+                            <a href="voyager.html" class="btn">Learn More</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Space Explorer</h3>
+                    <p>Discover the wonders of the universe with our interactive space exploration website.</p>
+                    <div class="social-links">
+                        <a href="https://www.facebook.com/"><i class="fab fa-facebook-f"></i></a>
+                        <a href="https://x.com/"><i class="fab fa-twitter"></i></a>
+                        <a href="https://www.instagram.com/"><i class="fab fa-instagram"></i></a>
+                        <a href="https://www.youtube.com/"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+                <div class="footer-section">
+                    <h3>Contact Us</h3>
+                    <p><i class="fas fa-envelope"></i> info@spaceexplorer.com</p>
+                    <p><i class="fas fa-phone"></i> +1 (123) 456-7890</p>
+                    <p><i class="fas fa-map-marker-alt"></i> 123 Cosmic Way, Universe</p>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2024 Space Explorer - Created by TARACHAND JAKHAR</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="/js/main.js"></script>
+</body>
+</html> 

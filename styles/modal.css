@@ -1,0 +1,458 @@
+/* Modal Styles */
+.modal {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.8);
+  z-index: 2000;
+  overflow-y: auto;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.modal.active {
+  display: block;
+  opacity: 1;
+}
+
+.modal-container {
+  position: relative;
+  width: 90%;
+  max-width: 800px;
+  margin: 50px auto;
+  background-color: rgba(30, 30, 40, 0.95);
+  border-radius: 10px;
+  padding: 30px;
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.5);
+  transform: translateY(20px);
+  transition: transform 0.3s ease;
+}
+
+.modal.active .modal-container {
+  transform: translateY(0);
+}
+
+.close-modal {
+  position: absolute;
+  top: 15px;
+  right: 20px;
+  font-size: 30px;
+  color: #ccc;
+  cursor: pointer;
+  transition: color 0.3s ease;
+}
+
+.close-modal:hover {
+  color: var(--secondary-color);
+}
+
+.modal-content {
+  color: var(--light-text);
+}
+
+.modal-content h2 {
+  margin-bottom: 20px;
+  color: var(--light-text);
+  font-size: 2rem;
+}
+
+.modal-img {
+  width: 100%;
+  max-height: 400px;
+  object-fit: cover;
+  border-radius: 8px;
+  margin-bottom: 20px;
+}
+
+.modal-content p {
+  margin-bottom: 20px;
+  line-height: 1.6;
+}
+
+.modal-content h3 {
+  margin: 20px 0 10px;
+  color: var(--secondary-color);
+}
+
+.modal-content ul {
+  margin-left: 20px;
+  margin-bottom: 20px;
+}
+
+.modal-content ul li {
+  margin-bottom: 10px;
+}
+
+/* Success and Error Messages */
+.success {
+  color: #4CAF50;
+  background-color: rgba(76, 175, 80, 0.1);
+  border: 1px solid #4CAF50;
+  padding: 10px;
+  border-radius: 5px;
+  margin-top: 15px;
+}
+
+.error {
+  color: #f44336;
+  background-color: rgba(244, 67, 54, 0.1);
+  border: 1px solid #f44336;
+  padding: 10px;
+  border-radius: 5px;
+  margin-top: 15px;
+}
+
+/* Responsive Adjustments */
+@media screen and (max-width: 768px) {
+  .modal-container {
+    width: 95%;
+    padding: 20px;
+    margin: 30px auto;
+  }
+  
+  .modal-content h2 {
+    font-size: 1.8rem;
+  }
+  
+  .modal-img {
+    max-height: 300px;
+  }
+}
+
+@media screen and (max-width: 576px) {
+  .modal-container {
+    padding: 15px;
+    margin: 20px auto;
+  }
+  
+  .modal-content h2 {
+    font-size: 1.5rem;
+  }
+  
+  .close-modal {
+    top: 10px;
+    right: 15px;
+    font-size: 24px;
+  }
+}
+
+/* Planet Cards */
+.planets-section {
+    padding: 80px 0;
+}
+
+.planets-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+    margin-top: 40px;
+}
+
+.planet-card {
+    background: rgba(30, 30, 40, 0.7);
+    border-radius: 10px;
+    overflow: hidden;
+    transition: transform 0.3s ease;
+    text-decoration: none;
+    display: block;
+    color: inherit;
+}
+
+.planet-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+}
+
+.planet-image {
+    width: 100%;
+    height: 250px;
+    overflow: hidden;
+    position: relative;
+}
+
+.planet-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    transition: transform 0.3s ease;
+    aspect-ratio: 1/1;
+}
+
+.planet-card:hover .planet-image img {
+    transform: scale(1.1);
+}
+
+.planet-content {
+    padding: 25px;
+}
+
+.planet-content h3 {
+    color: var(--light-text);
+    font-size: 1.8rem;
+    margin-bottom: 5px;
+}
+
+.planet-title {
+    color: var(--secondary-color);
+    font-size: 1rem;
+    margin-bottom: 20px;
+    font-style: italic;
+}
+
+.planet-facts {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 20px 0;
+}
+
+.planet-facts li {
+    color: #ccc;
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+}
+
+.planet-facts li i {
+    color: var(--secondary-color);
+    margin-right: 10px;
+    width: 20px;
+    text-align: center;
+}
+
+.planet-content p {
+    color: #ccc;
+    line-height: 1.6;
+}
+
+/* Fun Facts Section */
+.fun-facts {
+    padding: 80px 0;
+    background: rgba(11, 61, 145, 0.1);
+}
+
+.facts-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 30px;
+    margin-top: 40px;
+}
+
+.fact-card {
+    background: rgba(30, 30, 40, 0.7);
+    padding: 30px;
+    border-radius: 10px;
+    text-align: center;
+    transition: transform 0.3s ease;
+}
+
+.fact-card:hover {
+    transform: translateY(-5px);
+}
+
+.fact-card i {
+    font-size: 2.5rem;
+    color: var(--secondary-color);
+    margin-bottom: 20px;
+}
+
+.fact-card h4 {
+    color: var(--light-text);
+    font-size: 1.3rem;
+    margin-bottom: 15px;
+}
+
+.fact-card p {
+    color: #ccc;
+    line-height: 1.6;
+}
+
+/* Responsive Design */
+@media screen and (max-width: 992px) {
+    .planets-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .planets-grid,
+    .facts-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .planet-image {
+        height: 200px;
+    }
+
+    .planet-content {
+        padding: 20px;
+    }
+
+    .planet-content h3 {
+        font-size: 1.5rem;
+    }
+
+    .fact-card {
+        padding: 25px;
+    }
+}
+
+@media screen and (max-width: 576px) {
+    .planets-section,
+    .fun-facts {
+        padding: 60px 0;
+    }
+
+    .planet-facts li {
+        font-size: 0.9rem;
+    }
+
+    .fact-card i {
+        font-size: 2rem;
+    }
+
+    .fact-card h4 {
+        font-size: 1.2rem;
+    }
+}
+
+/* Detailed Planet Page Styles */
+.planet-detail {
+    padding: 60px 0;
+}
+
+.planet-overview {
+    display: grid;
+    grid-template-columns: 1fr 1.5fr;
+    gap: 40px;
+    margin-bottom: 60px;
+}
+
+.planet-main-image {
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+}
+
+.planet-info {
+    color: var(--light-text);
+}
+
+.planet-info h2 {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+    color: var(--secondary-color);
+}
+
+.planet-info p {
+    font-size: 1.1rem;
+    line-height: 1.8;
+    margin-bottom: 30px;
+}
+
+.key-facts {
+    background: rgba(30, 30, 40, 0.7);
+    padding: 25px;
+    border-radius: 10px;
+    margin-top: 30px;
+}
+
+.key-facts h3 {
+    color: var(--secondary-color);
+    margin-bottom: 20px;
+}
+
+.key-facts ul {
+    list-style: none;
+    padding: 0;
+}
+
+.key-facts li {
+    display: flex;
+    align-items: center;
+    margin-bottom: 15px;
+    color: #ccc;
+}
+
+.key-facts li i {
+    color: var(--secondary-color);
+    margin-right: 15px;
+    width: 20px;
+    text-align: center;
+}
+
+.planet-sections {
+    display: grid;
+    gap: 40px;
+}
+
+.planet-sections section {
+    background: rgba(30, 30, 40, 0.7);
+    padding: 30px;
+    border-radius: 10px;
+}
+
+.planet-sections h3 {
+    color: var(--secondary-color);
+    font-size: 1.8rem;
+    margin-bottom: 20px;
+}
+
+.planet-sections p {
+    color: #ccc;
+    line-height: 1.8;
+    margin-bottom: 20px;
+}
+
+.planet-sections ul {
+    color: #ccc;
+    margin-left: 20px;
+}
+
+.planet-sections li {
+    margin-bottom: 10px;
+}
+
+/* Responsive Design for Planet Detail Pages */
+@media screen and (max-width: 992px) {
+    .planet-overview {
+        grid-template-columns: 1fr;
+    }
+
+    .planet-main-image {
+        max-height: 400px;
+        object-fit: cover;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .planet-detail {
+        padding: 40px 0;
+    }
+
+    .planet-info h2 {
+        font-size: 2rem;
+    }
+
+    .planet-sections h3 {
+        font-size: 1.5rem;
+    }
+}
+
+@media screen and (max-width: 576px) {
+    .planet-detail {
+        padding: 30px 0;
+    }
+
+    .key-facts {
+        padding: 20px;
+    }
+
+    .planet-sections section {
+        padding: 20px;
+    }
+} 

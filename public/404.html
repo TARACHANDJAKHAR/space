@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Page not found - Space Explorer">
+  <title>404 - Page Not Found | Space Explorer</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../styles/main.css">
+  <style>
+    .error-container {
+      text-align: center;
+      padding: 100px 20px;
+      max-width: 800px;
+      margin: 0 auto;
+    }
+    
+    .error-code {
+      font-size: 120px;
+      margin-bottom: 20px;
+      color: var(--secondary-color);
+      font-weight: 700;
+    }
+    
+    .error-message {
+      font-size: 24px;
+      margin-bottom: 30px;
+    }
+    
+    .astronaut {
+      max-width: 300px;
+      margin: 30px auto;
+      animation: float 6s ease-in-out infinite;
+    }
+    
+    @keyframes float {
+      0% {
+        transform: translateY(0px);
+      }
+      50% {
+        transform: translateY(-20px);
+      }
+      100% {
+        transform: translateY(0px);
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Header -->
+  <header>
+    <div class="container navbar">
+      <a href="/" class="logo">
+        <i class="fas fa-rocket"></i>
+        <span>Space Explorer</span>
+      </a>
+      <nav>
+        <ul class="nav-links">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="planets.html">Planets</a></li>
+          <li><a href="exploration.html">Exploration</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+        <div class="hamburger">
+          <div class="line1"></div>
+          <div class="line2"></div>
+          <div class="line3"></div>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <!-- 404 Content -->
+  <section>
+    <div class="container error-container">
+      <div class="error-code">404</div>
+      <h1 class="error-message">Houston, We Have a Problem!</h1>
+      <p>The page you're looking for seems to have drifted off into deep space.</p>
+      
+      <div class="astronaut">
+        <i class="fas fa-user-astronaut" style="font-size: 150px; color: var(--accent-color);"></i>
+      </div>
+      
+      <p>Don't worry, you can safely return to the mothership by clicking the button below.</p>
+      
+      <a href="index.html" class="btn">Return to Home</a>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-section">
+          <h3>Space Explorer</h3>
+          <p>Discover the wonders of the universe with our interactive space exploration website.</p>
+          <div class="social-links">
+            <a href="#"><i class="fab fa-facebook-f"></i></a>
+            <a href="#"><i class="fab fa-twitter"></i></a>
+            <a href="#"><i class="fab fa-instagram"></i></a>
+            <a href="#"><i class="fab fa-youtube"></i></a>
+          </div>
+        </div>
+        <div class="footer-section">
+          <h3>Contact Us</h3>
+          <p><i class="fas fa-envelope"></i> info@spaceexplorer.com</p>
+          <p><i class="fas fa-phone"></i> +1 (123) 456-7890</p>
+          <p><i class="fas fa-map-marker-alt"></i> 123 Cosmic Way, Universe</p>
+        </div>
+      </div>
+      <div class="copyright">
+        <p>&copy; 2024 Space Explorer - Created by TARACHAND JAKHAR</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="../js/main.js"></script>
+  <script src="../js/utils.js" defer></script>
+</body>
+</html> 
