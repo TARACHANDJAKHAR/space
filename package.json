@@ -5,7 +5,11 @@
   "main": "server/index.js",
   "scripts": {
     "start": "node server/index.js",
-    "dev": "nodemon server/index.js"
+    "dev": "nodemon server/index.js",
+    "build": "npm run build:client",
+    "build:client": "cp -r public/* dist/",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d dist"
   },
   "keywords": [
     "space",
@@ -15,13 +19,15 @@
   ],
   "author": "TARACHAND JAKHAR",
   "license": "MIT",
+  "homepage": "https://tarachandjakhar.github.io/space-explorer",
   "dependencies": {
-    "express": "^4.18.2",
     "body-parser": "^1.20.2",
     "dotenv": "^16.3.1",
-    "ejs": "^3.1.9"
+    "ejs": "^3.1.9",
+    "express": "^4.18.2"
   },
   "devDependencies": {
-    "nodemon": "^3.0.1"
+    "gh-pages": "^6.3.0",
+    "nodemon": "^3.0.2"
   }
-} 
+}
