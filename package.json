@@ -19,7 +19,7 @@
   ],
   "author": "TARACHAND JAKHAR",
   "license": "MIT",
-  "homepage": "https://tarachandjakhar.github.io/space-explorer",
+  "homepage": "https://tarachandjakhar.github.io/space",
   "dependencies": {
     "body-parser": "^1.20.2",
     "dotenv": "^16.3.1",
