@@ -2,45 +2,22 @@ name: Deploy to GitHub Pages
 
 on:
   push:
-    branches: [ "Deploy" ]
-  pull_request:
-    branches: [ "Deploy" ]
-  
-  workflow_dispatch:
-
-permissions:
-  contents: read
-  pages: write
-  id-token: write
-
-
-concurrency:
-  group: "pages"
-  cancel-in-progress: true
+    branches:
+      - deploy  # Trigger deployment only when pushing to the deploy branch
 
 jobs:
   deploy:
-    environment:
-      name: github-pages
-      url: https://tarachandjakhar.github.io/space
     runs-on: ubuntu-latest
+
     steps:
-      - name: Checkout
-        uses: actions/checkout@v4
+    - name: Checkout code
+      uses: actions/checkout@v4
+      with:
+        fetch-depth: 0  # Required for proper Git history
 
-      - name: Setup Pages
-        uses: actions/configure-pages@v4
-        with:
-          static_site_generator: "html"
-
-      - name: Upload artifact
-        uses: actions/upload-pages-artifact@v3
-        with:
-          path: './public'
-          name: github-pages
-
-      - name: Deploy to GitHub Pages
-        id: deployment
-        uses: actions/deploy-pages@v4
-        with:
-          artifact_name: github-pages
+    - name: Deploy to GitHub Pages
+      uses: JamesIves/github-pages-deploy-action@v4
+      with:
+        branch: gh-pages    # The branch to deploy to
+        folder: public      # The folder containing your `index.html`
+        clean: true         # Automatically remove old files
