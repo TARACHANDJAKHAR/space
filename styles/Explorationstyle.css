@@ -1,0 +1,200 @@
+header {
+    background-color: #000;
+    color: white;
+    padding: 40px;
+}
+
+nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+nav ul li {
+    display: inline-block;
+    margin-right: 30px;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: white;
+}/* Add CSS styles for the Exploration section */
+.exploration-section {
+    text-align: center;
+    padding: 20px;
+}
+
+.exploration-section h2 {
+    font-size: 36px;
+    margin-bottom: 20px;
+}
+
+.exploration-section p {
+    font-size: 18px;
+    line-height: 1.5;
+}
+
+.exploration-section ul {
+    list-style: none;
+    padding: 0;
+}
+
+.exploration-section li {
+    display: inline-block;
+    margin: 20px;
+}
+
+.exploration-section img {
+    width: 200px;
+    height: 200px;
+}
+footer {
+    background-color: none;
+    padding: 10px;
+    text-align: center;
+}
+
+/* Exploration Page Styles */
+.missions-section {
+    padding: 80px 0;
+}
+
+.missions-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+    margin-top: 40px;
+}
+
+.mission-card {
+    background: rgba(30, 30, 40, 0.7);
+    border-radius: 10px;
+    overflow: hidden;
+    transition: transform 0.3s ease;
+}
+
+.mission-card:hover {
+    transform: translateY(-10px);
+}
+
+.mission-image {
+    width: 100%;
+    height: 250px;
+    overflow: hidden;
+}
+
+.mission-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+}
+
+.mission-card:hover .mission-image img {
+    transform: scale(1.1);
+}
+
+.mission-content {
+    padding: 25px;
+}
+
+.mission-content h3 {
+    color: var(--light-text);
+    margin-bottom: 10px;
+    font-size: 1.5rem;
+}
+
+.mission-date {
+    color: var(--secondary-color);
+    font-size: 0.9rem;
+    margin-bottom: 15px;
+    display: block;
+}
+
+.mission-content p {
+    color: #ccc;
+    margin-bottom: 20px;
+    line-height: 1.6;
+}
+
+.mission-facts {
+    list-style: none;
+    margin-top: 20px;
+    padding: 0;
+}
+
+.mission-facts li {
+    color: #ccc;
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+}
+
+.mission-facts li i {
+    color: var(--secondary-color);
+    margin-right: 10px;
+    font-size: 1.2rem;
+}
+
+.future-missions {
+    background: rgba(11, 61, 145, 0.1);
+    padding: 80px 0;
+}
+
+.future-missions .mission-card {
+    text-align: center;
+    padding: 40px;
+}
+
+.future-missions .mission-content h3 {
+    font-size: 1.8rem;
+    margin-bottom: 20px;
+}
+
+.future-missions .mission-content p {
+    margin-bottom: 30px;
+}
+
+/* Responsive Design */
+@media screen and (max-width: 992px) {
+    .missions-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .missions-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .mission-image {
+        height: 200px;
+    }
+
+    .mission-content {
+        padding: 20px;
+    }
+
+    .future-missions .mission-card {
+        padding: 30px;
+    }
+}
+
+@media screen and (max-width: 576px) {
+    .missions-section,
+    .future-missions {
+        padding: 60px 0;
+    }
+
+    .mission-content h3 {
+        font-size: 1.3rem;
+    }
+
+    .future-missions .mission-content h3 {
+        font-size: 1.5rem;
+    }
+
+    .mission-facts li {
+        font-size: 0.9rem;
+    }
+}
