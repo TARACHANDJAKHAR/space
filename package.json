@@ -19,7 +19,7 @@
   ],
   "author": "TARACHAND JAKHAR",
   "license": "MIT",
-  "homepage": "https://tarachandjakhar.github.io/space",
+  "homepage": "https://tarachandjakhar.github.io/space/public",
   "dependencies": {
     "body-parser": "^1.20.2",
     "dotenv": "^16.3.1",
